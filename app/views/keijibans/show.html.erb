@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @keijiban.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @keijiban.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_keijiban_path(@keijiban) %> |
+<%= link_to 'Back', keijibans_path %>

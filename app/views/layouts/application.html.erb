@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PaPa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <h1>PAPA: Personal Assistant Parent Application</h1>
+  <header>
+    <% if session[:user_id] %>
+      <% current_user = User.find_by(id: session[:user_id]) %>
+      <i><%= link_to(current_user.name, "/users/#{current_user.id}") %></i>
+      <%= link_to("logout", "/logout") %>
+    <% else %>
+      <%= link_to("signup", "/signup") %>
+      <%= link_to("login", "/login_form") %>
+    <% end %>
+  </header>
+
+<body>
+
+<%= yield %>
+
+</body>
+</html>
