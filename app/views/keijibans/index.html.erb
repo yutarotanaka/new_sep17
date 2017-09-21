@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Keijibans</h1>
+<h1>掲示板</h1>
 
 <table>
   <thead>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= keijiban.content %></td>
         <td><%= keijiban.user_id %></td>
-        <td><%= link_to 'Show', keijiban %></td>
-        <td><%= link_to 'Edit', edit_keijiban_path(keijiban) %></td>
-        <td><%= link_to 'Destroy', keijiban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '表示', keijiban %></td>
+        <td><%= link_to '変更', edit_keijiban_path(keijiban) %></td>
+        <td><%= link_to '消去', keijiban, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

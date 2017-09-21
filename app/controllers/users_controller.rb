@@ -8,8 +8,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Welcome to the Papa!"
-      redirect_to @user
-    end
+      redirect_to("/users/#{@user.id}")
      else
       render 'new'
     end
@@ -36,7 +35,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
     else
-      redirect_to("/login")
+      flash.now.alert = "Login Failed"
+      redirect_to("/login_form")
     end
   end
   
@@ -49,5 +49,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @id = params[:id]
   end
+  
   
 end

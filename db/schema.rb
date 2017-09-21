@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916125101) do
+ActiveRecord::Schema.define(version: 20170919032400) do
 
   create_table "keijibans", force: :cascade do |t|
     t.text     "content"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170916125101) do
     t.text     "universal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "deadline"
   end
 
   create_table "twitter_apps", force: :cascade do |t|

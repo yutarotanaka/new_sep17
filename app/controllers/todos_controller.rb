@@ -2,13 +2,13 @@ class TodosController < ApplicationController
     
     def todo_create
         @user = User.find_by(id: session[:user_id])
-        Todo.create(content: params[:content], user_id: @user.id)
+        Todo.create(content: params[:content], user_id: @user.id, deadline: params[:deadline], title: params[:title])
         redirect_to("/users/#{@user.id}")
     end
     
     def todo_create_universal
         @user = User.find_by(id: session[:user_id])
-        Todo.create(content: params[:content], universal: true)
+        Todo.create(content: params[:content], universal: true, deadline: params[:deadline], title: params[:title])
         redirect_to("/users/#{@user.id}")
     end
     
