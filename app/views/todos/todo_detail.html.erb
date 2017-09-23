@@ -1,4 +1,15 @@
 <h3>Todo Detail</h3>
 
+<%= @todo.title %>
+
+</br>
+
 <%= @todo.content %>
 
+</br>
+
+<%= link_to("Edit", "/users/todos/#{@todo.id}/edit") %>
+
+</br>
+
+<%= link_to("Delete", "/users/todos/#{@todo.id}/destroy") %>

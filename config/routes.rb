@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   
   resources :keijibans
   
+  post '/users/todos/:id/update' =>'todos#todo_update'
+  
+  get '/users/todos/:id/destroy' => 'todos#todo_destroy'
+  
+  get '/users/todos/:id/edit' => 'todos#todo_edit'
+  
   get '/users/todos/:id' => 'todos#todo_detail'
   
   post '/users/todos/create' => 'todos#todo_create'
   
-  post '/users/todos/universal' => 'todos#todo_create_universal'
+  post '/users/todos/create_universal' => 'todos#todo_create_universal'
   
   get '/users/:id' => 'users#todolist'
   

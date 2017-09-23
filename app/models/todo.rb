@@ -1,3 +1,3 @@
 class Todo < ActiveRecord::Base
-    Todo.order("deadline asc")
+    default_scope -> { order(deadline: :asc) }
 end
