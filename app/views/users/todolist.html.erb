@@ -41,7 +41,7 @@
             
             <%= todo.deadline %>
     
-            <li><%= link_to(todo.title, "/users/todos/#{todo.id}") %></li>
+            <li><input type="checkbox"><%= link_to(todo.title, "/users/todos/#{todo.id}") %></li>
         
         <% end %>
         

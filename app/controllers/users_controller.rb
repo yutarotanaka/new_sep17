@@ -4,13 +4,12 @@ class UsersController < ApplicationController
   
   def create
     @user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    redirect_to("/users/#{@user.id}")
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Welcome to the Papa!"
       redirect_to("/users/#{@user.id}")
      else
-      render 'new'
+      redirect_to :signup, :alert => "errorが起きました"
     end
   end
   
@@ -35,8 +34,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
     else
-      flash.now.alert = "Login Failed"
       redirect_to("/login_form")
+      flash[:alert] = "Invalid email/password combination"
     end
   end
   
