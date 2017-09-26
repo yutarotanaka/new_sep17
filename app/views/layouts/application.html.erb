@@ -13,12 +13,16 @@
     <% if session[:user_id] %>
       <% current_user = User.find_by(id: session[:user_id]) %>
       <i><%= link_to(current_user.name, "/users/#{current_user.id}") %></i>
+      <%= link_to("keijiban", "/keijibans") %>
+      <%= link_to("mytodos", "/todos") %>
+      <%= link_to("myhome", "/static_pages/user_home") %>
       <%= link_to("logout", "/logout") %>
     <% else %>
       <%= link_to("signup", "/signup") %>
       <%= link_to("login", "/login_form") %>
       <%= link_to("keijiban", "/keijibans") %>
       <%= link_to("home", "/static_pages/home") %>
+      <%= link_to("mytodos", "/todos") %> 
     <% end %>
   </header>
 
