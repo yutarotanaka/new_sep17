@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:success] = "Welcome to the Papa!"
+      UserMailer.welcome_email(@user).deliver_later
       redirect_to("/users/#{@user.id}")
      else
       redirect_to :signup, :alert => "errorが起きました"
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
+      #UserMailer.welcome_email(@user).deliver_later
       redirect_to("/users/#{@user.id}")
     else
       redirect_to("/login_form")
